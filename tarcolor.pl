@@ -7,6 +7,18 @@ my $BLUE     = "\033[1;34m";
 my $GREEN    = "\033[1;32m";
 my $RESET    = "\033[0m";
 
+sub is_link {
+    substr($_, 0, 1) eq 'l';
+}
+
+sub is_directory {
+    substr($_, 0, 1) eq 'd';
+}
+
+sub is_executable {
+    substr($_, 3, 1) eq 'x';
+}
+
 sub color_filename {
     my ($filename, $color) = @_;
 
@@ -16,13 +28,13 @@ sub color_filename {
 while (<>) {
     my $filename = (split())[8];
     
-    if (substr($_, 0, 1) eq 'l') {
+    if (is_link) {
         color_filename($filename, $CYAN);
     }
-    elsif (substr($_, 0, 1) eq 'd') {
+    elsif (is_directory) {
         color_filename($filename, $BLUE);
     }
-    elsif (substr($_, 3, 1) eq 'x') {
+    elsif (is_executable) {
         color_filename($filename, $GREEN);
     }
 
