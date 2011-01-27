@@ -32,9 +32,11 @@ while (<>) {
         color_filename($filename, $CYAN);
     }
     elsif (is_directory) {
+        $filename =~ s {\/} {}x;
         color_filename($filename, $BLUE);
     }
     elsif (is_executable) {
+        $filename =~ s {\*} {}x;
         color_filename($filename, $GREEN);
     }
 
