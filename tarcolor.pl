@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 use strict;
+use Getopt::Long;
 
 # Colors output of `tar tvxf` or `ls -l` the way GNU ls (in GNU coreutils)
 # would color a directory listing if the environment variable LS_COLORS was set
@@ -31,9 +32,15 @@ sub color_filename {
     s {$filename} {${color}${filename}${RESET}}x;
 }
 
+my $filename_column = 8;
+
+my $result = GetOptions(
+    "filename-column=i"  => \$filename_column
+);
+
 while (<>) {
-    my $filename = (split())[8];
-    
+    my $filename = (split())[$filename_column];
+
     if (is_link) {
         color_filename($filename, $CYAN);
     }
@@ -48,3 +55,4 @@ while (<>) {
 
     print;
 }
+
