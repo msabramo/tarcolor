@@ -1,10 +1,8 @@
-<pre>
-  <style type="text/css">
-  .dir   { color: blue; font-weight: bold }
-  .exec  { color: green; font-weight: bold }
-  .link  { color: cyan; font-weight: bold }
-  </style>
-</pre>
+<style type="text/css">
+.dir   { color: blue; font-weight: bold }
+.exec  { color: green; font-weight: bold }
+.link  { color: cyan; font-weight: bold }
+</style>
 
 # tarcolor
 Perl program that can color output of `tar tvf` similarly to the way ls would
