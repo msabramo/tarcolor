@@ -8,16 +8,15 @@ my $GREEN    = "\033[1;32m";
 my $RESET    = "\033[0m";
 
 while (<>) {
-    my $line = $_;
     my $filename = (split())[8];
     
-    if (substr($line, 0, 1) eq 'l') {
+    if (substr($_, 0, 1) eq 'l') {
         s {$filename} {${CYAN}${filename}${RESET}}x;
     }
-    elsif (substr($line, 0, 1) eq 'd') {
+    elsif (substr($_, 0, 1) eq 'd') {
         s {$filename} {${BLUE}${filename}${RESET}}x;
     }
-    elsif (substr($line, 3, 1) eq 'x') {
+    elsif (substr($_, 3, 1) eq 'x') {
         s {$filename} {${GREEN}${filename}${RESET}}x;
     }
 
