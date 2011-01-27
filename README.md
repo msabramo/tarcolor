@@ -11,4 +11,4 @@ $ cp tarcolor.pl ~/bin/tarcolor
 
 ## Example
 
-![tarcolor screenshot](blob/master/tarcolor_screenshot.png "tarcolor screenshot")
+![tarcolor screenshot](https://github.com/msabramo/tarcolor/raw/master/tarcolor_screenshot.png "tarcolor screenshot")
