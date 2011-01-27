@@ -1,5 +1,6 @@
 # tarcolor
-Perl program that can color output of `tar tvf` similarly to the way ls would
+
+A Perl program that can color the output of `tar tvf` similarly to the way `ls` would
 
 By Marc Abramowitz [http://marc-abramowitz.com](http://marc-abramowitz.com)
 
