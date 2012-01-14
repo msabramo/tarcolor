@@ -2,6 +2,7 @@
 
 use strict;
 use Getopt::Long;
+use Scalar::Util qw(looks_like_number);
 
 # Colors output of `tar tvxf` or `ls -l` the way GNU ls (in GNU coreutils)
 # would color a directory listing if the environment variable LS_COLORS was set
@@ -32,6 +33,16 @@ sub color_filename {
     s {$filename} {${color}${filename}${RESET}}x;
 }
 
+sub get_filename_column {
+	my (@fields) = @_;
+
+	if (looks_like_number($fields[1])) {
+		return 8;
+	} else {
+		return 5;
+	}
+}
+
 my $filename_column = 8;
 
 my $result = GetOptions(
@@ -39,7 +50,9 @@ my $result = GetOptions(
 );
 
 while (<>) {
-    my $filename = (split())[$filename_column];
+	my @fields = split();
+	my $filename_column = get_filename_column(@fields);
+    my $filename = $fields[$filename_column];
 
     if (is_link) {
         color_filename($filename, $CYAN);
