@@ -17,4 +17,4 @@ $ cp tarcolor.pl ~/bin/tarcolor
 
 ## Future enhancements (patches are welcome!)
 
-* Make the colors customizable using an environment variable.
+* Send me your ideas (especially with patches!)
