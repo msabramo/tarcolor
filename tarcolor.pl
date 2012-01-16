@@ -24,68 +24,68 @@ my $RESET = "\033[0m";
 
 sub get_file_type {
     if (substr($_, 0, 1) eq 'l') {
-		return 'ln';
-	} elsif (substr($_, 0, 1) eq 'd') {
-		return 'di';
-	} elsif (substr($_, 0, 1) eq 's') {
-		return 'so';
-	} elsif (substr($_, 3, 1) eq 'S') {
-		return 'su';
-	} elsif (substr($_, 6, 1) eq 'S') {
-		return 'sg';
-	} elsif (substr($_, 0, 1) eq 'p') {
-		return 'pi';
-	} elsif (substr($_, 0, 1) eq 'c') {
-		return 'cd';
-	} elsif (substr($_, 0, 1) eq 'b') {
-		return 'bd';
-	} elsif (substr($_, 0, 1) eq 'D') {
-		return 'do';
-	} elsif (substr($_, 3, 1) eq 'x') {
-		return 'ex';
-	}
+        return 'ln';
+    } elsif (substr($_, 0, 1) eq 'd') {
+        return 'di';
+    } elsif (substr($_, 0, 1) eq 's') {
+        return 'so';
+    } elsif (substr($_, 3, 1) eq 'S') {
+        return 'su';
+    } elsif (substr($_, 6, 1) eq 'S') {
+        return 'sg';
+    } elsif (substr($_, 0, 1) eq 'p') {
+        return 'pi';
+    } elsif (substr($_, 0, 1) eq 'c') {
+        return 'cd';
+    } elsif (substr($_, 0, 1) eq 'b') {
+        return 'bd';
+    } elsif (substr($_, 0, 1) eq 'D') {
+        return 'do';
+    } elsif (substr($_, 3, 1) eq 'x') {
+        return 'ex';
+    }
 }
 
 sub color_filename {
     my ($color) = @_;
 
     s
-	    {
-			(
-				(?:\s+\d{2}:\d{2}) |     # time
-		        (?:\s+\d{4})             # year
-		    )                            # $1 = time | year
-			(\s+)                        # $2 = space
-			(.+?)                        # $3 = filename
-			(\s->|$)                     # $4 = " ->" or end of string
-		}
-		{$1$2${color}$3${RESET}$4}x;
+    {
+        (
+            (?:\s+\d{2}:\d{2}) |     # time
+            (?:\s+\d{4})             # year
+        )                            # $1 = time | year
+        (\s+)                        # $2 = space
+        (.+?)                        # $3 = filename
+        (\s->|$)                     # $4 = " ->" or end of string
+    }
+    {$1$2${color}$3${RESET}$4}x;
 }
 
 
 my %FILE_TYPE_TO_COLOR = (
-	"di" => "\033[01;34m",
-	"ln" => "\033[01;36m",
-	"ex" => "\033[01;32m",
-	"so" => "\033[01;35m",
-	"pi" => "\033[40;33m",
-	"bd" => "\033[40;33;01m",
-	"cd" => "\033[40;33;01m",
-	"su" => "\033[37;41m",
-	"sg" => "\033[30;43m",
+    "di" => "\033[01;34m",
+    "ln" => "\033[01;36m",
+    "ex" => "\033[01;32m",
+    "so" => "\033[01;35m",
+    "pi" => "\033[40;33m",
+    "bd" => "\033[40;33;01m",
+    "cd" => "\033[40;33;01m",
+    "su" => "\033[37;41m",
+    "sg" => "\033[30;43m",
 );
 
 foreach (split(':', $ENV{'TAR_COLORS'} || '')) {
-	my ($type, $codes) = split('=');
-	$FILE_TYPE_TO_COLOR{$type} = "\033[" . $codes . "m";
+    my ($type, $codes) = split('=');
+    $FILE_TYPE_TO_COLOR{$type} = "\033[" . $codes . "m";
 }
 
 while (<>) {
-	my $type = get_file_type();
+    my $type = get_file_type();
 
-	if ($type) {
-		color_filename($FILE_TYPE_TO_COLOR{$type});
-	}
+    if ($type) {
+        color_filename($FILE_TYPE_TO_COLOR{$type});
+    }
 
     print;
 }
