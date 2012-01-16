@@ -5,7 +5,7 @@ use strict;
 
 use Test::More;
 
-plan tests => 9;
+plan tests => 10;
 
 my $expected = <<END;
 drwxr-xr-x  12 marca  admin       0 Jan 15 08:33 \e[01;34mtest_tar_archive/\e[0m
@@ -109,3 +109,19 @@ lrwxr-xr-x  1 marca  CHEGG\\domain users 0 Jan 15 09:33 \e[40;34mw\e[0m -> rwx
 END
 
 is(`tar tvf t/archive_with_rwx_filename.tgz 2> /dev/null | TAR_COLORS="ln=40;34" ./tarcolor.pl`, $expected, "tar tvf archive_with_rwx_filename.tgz, TAR_COLORS ln=\"40;34\" set");
+
+$expected = <<END;
+total 0
+-rwxr-xr-x 1 8284 8284  0 Jan 16 06:41 \e[01;32m06:41\e[0m
+-rwxr-xr-x 1 8284 8284  0 Jan 16 06:41 \e[01;32m06:41 in the morning\e[0m
+drwxr-xr-x 2 8284 8284 68 Jan 14 08:57 \e[01;34mdirectory\e[0m
+-rwxr-xr-x 1 8284 8284  0 Aug  9  2013 \e[01;32mexecutable\e[0m
+prw-r--r-- 1 8284 8284  0 Jan 14 09:01 \e[40;33mfifo\e[0m
+-rw-r--r-- 1 8284 8284  0 Jan 14 08:57 normal_file
+-rw-r--r-- 1 8284 8284  0 Jan 14 09:48 setgid_file
+-rw-r--r-- 1 8284 8284  0 Jan 14 09:47 setuid_file
+-rw-r--r-- 1 8284 8284  0 Jan 14 09:17 sticky_file
+END
+
+is(`cat t/ls_output | TAR_COLORS="ln=40;34" ./tarcolor.pl`, $expected, "Coloring of pathological ls output");
+

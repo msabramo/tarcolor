@@ -51,15 +51,21 @@ sub color_filename {
 
     s
     {
+        (\d+)                        # size
+        ([-\s]+)
+        (\w+)                        #
+        ([-\s]+)
+        (\d{1,2})                    # day (dd) in date
+        (\s+)
         (
-            (?:\s+\d{2}:\d{2}) |     # time
-            (?:\s+\d{4})             # year
+            (?:\d{2}:\d{2}) |        # time
+            (?:\d{4})                # year
         )                            # $1 = time | year
         (\s+)                        # $2 = space
         (.+?)                        # $3 = filename
         (\s->|$)                     # $4 = " ->" or end of string
     }
-    {$1$2${color}$3${RESET}$4}x;
+    {$1$2$3$4$5$6$7$8${color}$9${RESET}$10}x;
 }
 
 
