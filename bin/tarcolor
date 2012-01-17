@@ -6,7 +6,9 @@
 #
 # https://github.com/msabramo/tarcolor
 #
-# Colors output of `tar tvf` or `ls -l` similarly to the way GNU ls (in GNU
+# ABSTRACT: colors output of `tar tvf`
+#
+# Colors output of `tar tvf` similarly to the way GNU ls (in GNU
 # coreutils) would color a directory listing.
 #
 # Colors can be customized using an environment variable:

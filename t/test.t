@@ -21,7 +21,7 @@ prw-r--r--  1 marca  admin              0 Jan 14 09:01 \e[40;33mtest_tar_archive
 lrwxr-xr-x  1 marca  admin              0 Jan 15 08:33 \e[01;36mtest_tar_archive/symlink\e[0m -> normal_file
 END
 
-is(`tar tvf t/test_tar_archive.tgz | ./tarcolor.pl`, $expected, "tar tvf test_tar_archive.tgz, no TAR_COLORS set");
+is(`tar tvf t/test_tar_archive.tgz | bin/tarcolor`, $expected, "tar tvf test_tar_archive.tgz, no TAR_COLORS set");
 
 $expected = <<END;
 drwxr-xr-x marca/admin       0 2012-01-15 08:33 \e[01;34mtest_tar_archive/\e[0m
@@ -37,7 +37,7 @@ prw-r--r-- marca/admin              0 2012-01-14 09:01 \e[40;33mtest_tar_archive
 lrwxr-xr-x marca/admin              0 2012-01-15 08:33 \e[01;36mtest_tar_archive/symlink\e[0m -> normal_file
 END
 
-is(`gtar tvf t/test_tar_archive.tgz 2> /dev/null | ./tarcolor.pl`, $expected, "gtar tvf test_tar_archive.tgz, no TAR_COLORS set");
+is(`gtar tvf t/test_tar_archive.tgz 2> /dev/null | bin/tarcolor`, $expected, "gtar tvf test_tar_archive.tgz, no TAR_COLORS set");
 
 $expected = <<END;
 drwxr-xr-x  0 marc   marc        0 Jan 27  2011 \e[01;34mtest_archive/\e[0m
@@ -46,7 +46,7 @@ drwxr-xr-x  0 marc   marc        0 Jan 27  2011 \e[01;34mtest_archive/dir/\e[0m
 lrwxr-xr-x  0 marc   marc        0 Jan 27  2011 \e[01;36mtest_archive/link\e[0m -> executable
 END
 
-is(`tar tvf t/test_archive.tar.gz | ./tarcolor.pl`, $expected, "tar tvf test_archive.tar.gz, no TAR_COLORS set");
+is(`tar tvf t/test_archive.tar.gz | bin/tarcolor`, $expected, "tar tvf test_archive.tar.gz, no TAR_COLORS set");
 
 $expected = <<END;
 drwxr-xr-x marc/marc         0 2011-01-27 09:01 \e[01;34mtest_archive/\e[0m
@@ -55,7 +55,7 @@ drwxr-xr-x marc/marc         0 2011-01-27 09:00 \e[01;34mtest_archive/dir/\e[0m
 lrwxr-xr-x marc/marc         0 2011-01-27 09:01 \e[01;36mtest_archive/link\e[0m -> executable
 END
 
-is(`gtar tvf t/test_archive.tar.gz | ./tarcolor.pl`, $expected, "gtar tvf test_archive.tar.gz, no TAR_COLORS set");
+is(`gtar tvf t/test_archive.tar.gz | bin/tarcolor`, $expected, "gtar tvf test_archive.tar.gz, no TAR_COLORS set");
 
 $expected = <<END;
 drwxr-xr-x marc/marc         0 2011-01-27 09:01 \e[01;33mtest_archive/\e[0m
@@ -64,7 +64,7 @@ drwxr-xr-x marc/marc         0 2011-01-27 09:00 \e[01;33mtest_archive/dir/\e[0m
 lrwxr-xr-x marc/marc         0 2011-01-27 09:01 \e[01;36mtest_archive/link\e[0m -> executable
 END
 
-is(`gtar tvf t/test_archive.tar.gz | TAR_COLORS="di=01;33" ./tarcolor.pl`, $expected, "gtar tvf test_archive.tar.gz, TAR_COLORS di=\"01;33\" set");
+is(`gtar tvf t/test_archive.tar.gz | TAR_COLORS="di=01;33" bin/tarcolor`, $expected, "gtar tvf test_archive.tar.gz, TAR_COLORS di=\"01;33\" set");
 
 $expected = <<END;
 drwxr-xr-x marc/marc         0 2011-01-27 09:01 \e[01;34mtest_archive/\e[0m
@@ -73,7 +73,7 @@ drwxr-xr-x marc/marc         0 2011-01-27 09:00 \e[01;34mtest_archive/dir/\e[0m
 lrwxr-xr-x marc/marc         0 2011-01-27 09:01 \e[01;36mtest_archive/link\e[0m -> executable
 END
 
-is(`gtar tvf t/test_archive.tar.gz | TAR_COLORS="ex=01;33" ./tarcolor.pl`, $expected, "gtar tvf test_archive.tar.gz, TAR_COLORS ex=\"01;33\" set");
+is(`gtar tvf t/test_archive.tar.gz | TAR_COLORS="ex=01;33" bin/tarcolor`, $expected, "gtar tvf test_archive.tar.gz, TAR_COLORS ex=\"01;33\" set");
 
 $expected = <<END;
 drwxr-xr-x marc/marc         0 2011-01-27 09:01 \e[01;34mtest_archive/\e[0m
@@ -82,7 +82,7 @@ drwxr-xr-x marc/marc         0 2011-01-27 09:00 \e[01;34mtest_archive/dir/\e[0m
 lrwxr-xr-x marc/marc         0 2011-01-27 09:01 \e[01;33mtest_archive/link\e[0m -> executable
 END
 
-is(`gtar tvf t/test_archive.tar.gz | TAR_COLORS="ln=01;33" ./tarcolor.pl`, $expected, "gtar tvf test_archive.tar.gz, TAR_COLORS ln=\"01;33\" set");
+is(`gtar tvf t/test_archive.tar.gz | TAR_COLORS="ln=01;33" bin/tarcolor`, $expected, "gtar tvf test_archive.tar.gz, TAR_COLORS ln=\"01;33\" set");
 
 $expected = <<END;
 -rwxr-xr-x marca/CHEGG\\domain users 0 2012-01-15 09:41 \e[01;32m09\e[0m
@@ -95,7 +95,7 @@ lrwxr-xr-x marca/CHEGG\\domain users 0 2012-01-15 13:21 \e[40;34msymlink with sp
 lrwxr-xr-x marca/CHEGG\\domain users 0 2012-01-15 09:33 \e[40;34mw\e[0m -> rwx
 END
 
-is(`gtar tvf t/archive_with_rwx_filename.tgz 2> /dev/null | TAR_COLORS="ln=40;34" ./tarcolor.pl`, $expected, "gtar tvf archive_with_rwx_filename.tgz, TAR_COLORS ln=\"40;34\" set");
+is(`gtar tvf t/archive_with_rwx_filename.tgz 2> /dev/null | TAR_COLORS="ln=40;34" bin/tarcolor`, $expected, "gtar tvf archive_with_rwx_filename.tgz, TAR_COLORS ln=\"40;34\" set");
 
 $expected = <<END;
 -rwxr-xr-x  1 marca  CHEGG\\domain users 0 Jan 15 09:41 \e[01;32m09\e[0m
@@ -108,7 +108,7 @@ lrwxr-xr-x  1 marca  CHEGG\\domain users 0 Jan 15 13:21 \e[40;34msymlink with sp
 lrwxr-xr-x  1 marca  CHEGG\\domain users 0 Jan 15 09:33 \e[40;34mw\e[0m -> rwx
 END
 
-is(`tar tvf t/archive_with_rwx_filename.tgz 2> /dev/null | TAR_COLORS="ln=40;34" ./tarcolor.pl`, $expected, "tar tvf archive_with_rwx_filename.tgz, TAR_COLORS ln=\"40;34\" set");
+is(`tar tvf t/archive_with_rwx_filename.tgz 2> /dev/null | TAR_COLORS="ln=40;34" bin/tarcolor`, $expected, "tar tvf archive_with_rwx_filename.tgz, TAR_COLORS ln=\"40;34\" set");
 
 $expected = <<END;
 total 0
@@ -123,5 +123,5 @@ prw-r--r-- 1 8284 8284  0 Jan 14 09:01 \e[40;33mfifo\e[0m
 -rw-r--r-- 1 8284 8284  0 Jan 14 09:17 sticky_file
 END
 
-is(`cat t/ls_output | TAR_COLORS="ln=40;34" ./tarcolor.pl`, $expected, "Coloring of pathological ls output");
+is(`cat t/ls_output | TAR_COLORS="ln=40;34" bin/tarcolor`, $expected, "Coloring of pathological ls output");
 
