@@ -2,12 +2,12 @@
 
 A Perl program that can color the output of `tar tvf` (tested with [bsdtar](http://code.google.com/p/libarchive/) 2.6.2 and [GNU tar](http://www.gnu.org/software/tar/) 1.26 on OS X 10.6.8) similarly to the way `ls` would
 
-By Marc Abramowitz [http://marc-abramowitz.com](http://marc-abramowitz.com)
+By Marc Abramowitz (http://marc-abramowitz.com)
 
 
 ## Installation
 
-Download a tarball App-TarColor-<version>.tar.gz from [the downloads page](https://github.com/msabramo/tarcolor/downloads).
+Download a tarball App-TarColor-&lt;version&gt;.tar.gz from [the downloads page](https://github.com/msabramo/tarcolor/downloads).
 
 Or build a tarball from the repository:
 
@@ -15,7 +15,7 @@ Or build a tarball from the repository:
 
 Install with cpanm:
 
-	$ cpanm App-TarColor-0.001.tar.gz
+	$ cpanm App-TarColor-<version>.tar.gz
 
 Or untar the tarball and build it:
 
