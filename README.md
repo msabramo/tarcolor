@@ -13,7 +13,7 @@ Or build a tarball from the repository using [Dist::Zilla](http://dzil.org/):
 
     $ dzil build
 
-Install from the tarball with [cpanm](http://search.cpan.org/perldoc?cpanm):
+Install from the tarball with [cpanm (a.k.a.: App::cpanminus)](http://search.cpan.org/perldoc?cpanm):
 
     $ cpanm App-TarColor-<version>.tar.gz
 
