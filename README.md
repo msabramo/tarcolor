@@ -4,11 +4,34 @@ A Perl program that can color the output of `tar tvf` (tested with [bsdtar](http
 
 By Marc Abramowitz [http://marc-abramowitz.com](http://marc-abramowitz.com)
 
+
 ## Installation
 
-<pre>
-$ cp tarcolor.pl ~/bin/tarcolor
-</pre>
+Download a tarball App-TarColor-<version>.tar.gz from [the downloads page](https://github.com/msabramo/tarcolor/downloads).
+
+Or build a tarball from the repository:
+
+	$ dzil build
+
+Install with cpanm:
+
+	$ cpanm App-TarColor-0.001.tar.gz
+
+Or untar the tarball and build it:
+
+	$ tar xzf App-TarColor-<version>.tar.gz
+	$ cd App-TarColor-<version>
+    $ perl Makefile.PL
+    $ make && make test
+
+Then install it:
+
+    $ make install
+
+If you are installing into a system-wide directory, you may need to run:
+
+    $ sudo make install
+
 
 ## Example
 
