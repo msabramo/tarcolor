@@ -7,20 +7,20 @@ By Marc Abramowitz (http://marc-abramowitz.com)
 
 ## Installation
 
-Download a tarball App-TarColor-&lt;version&gt;.tar.gz from [the downloads page](https://github.com/msabramo/tarcolor/downloads).
+Download a tarball `App-TarColor-<version>.tar.gz` from [the downloads page](https://github.com/msabramo/tarcolor/downloads).
 
-Or build a tarball from the repository:
+Or build a tarball from the repository using [Dist::Zilla](http://dzil.org/):
 
-	$ dzil build
+    $ dzil build
 
-Install with cpanm:
+Install from the tarball with [cpanm](search.cpan.org/perldoc?cpanm):
 
-	$ cpanm App-TarColor-<version>.tar.gz
+    $ cpanm App-TarColor-<version>.tar.gz
 
 Or untar the tarball and build it:
 
-	$ tar xzf App-TarColor-<version>.tar.gz
-	$ cd App-TarColor-<version>
+    $ tar xzf App-TarColor-<version>.tar.gz
+    $ cd App-TarColor-<version>
     $ perl Makefile.PL
     $ make && make test
 
