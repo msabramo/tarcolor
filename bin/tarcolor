@@ -6,8 +6,6 @@
 #
 # https://github.com/msabramo/tarcolor
 #
-# ABSTRACT: colors output of `tar tvf`
-#
 # Colors output of `tar tvf` similarly to the way GNU ls (in GNU
 # coreutils) would color a directory listing.
 #
@@ -97,3 +95,33 @@ while (<>) {
 
     print;
 }
+
+
+# ABSTRACT: colors output of `tar tvf`
+# PODNAME: tarcolor
+
+=pod
+
+=head1 SYNOPSIS
+
+tar tvzf <tarball.tar.gz> | tarcolor
+
+=head1 DESCRIPTION
+
+Tarcolor colors the output of `tar tvf` similarly to how ls does it.
+
+Colors output of `tar tvf` similarly to the way GNU ls (in GNU coreutils) would
+color a directory listing.
+
+Colors can be customized using an environment variable:
+
+TAR_COLORS='di=01;34:ln=01;36:ex=01;32:so=01;40:pi=01;40:bd=40;33:cd=40;33:su=0;41:sg=0;46'
+
+The format for TAR_COLORS is similar to the format used by LS_COLORS Check out
+the online LSCOLORS generator at http://geoff.greer.fm/lscolors/
+
+=head1 SOURCE CODE
+
+https://github.com/msabramo/tarcolor
+
+=cut
