@@ -68,6 +68,10 @@ sub color_filename {
     {$1$2$3$4$5$6$7$8${color}$9${RESET}$10}x;
 }
 
+sub default_ls_colors {
+    return '';
+}
+
 
 my %FILE_TYPE_TO_COLOR = (
     "di" => "\033[01;34m",
@@ -81,7 +85,9 @@ my %FILE_TYPE_TO_COLOR = (
     "sg" => "\033[30;43m",
 );
 
-foreach (split(':', $ENV{'TAR_COLORS'} || '')) {
+my $tar_colors = $ENV{'TAR_COLORS'} || $ENV{'LS_COLORS'} || default_ls_colors();
+
+foreach (split(':', $tar_colors)) {
     my ($type, $codes) = split('=');
     $FILE_TYPE_TO_COLOR{$type} = "\033[" . $codes . "m";
 }
