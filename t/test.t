@@ -5,7 +5,7 @@ use strict;
 
 use Test::More;
 
-plan tests => 11;
+plan tests => 12;
 
 my $input;
 my $expected;
@@ -329,3 +329,33 @@ END
 
 is(`echo "$input" | TAR_COLORS="ln=40;34" bin/tarcolor`, $expected, "Coloring of ls output with seconds");
 
+
+$input = <<END;
+-rwxrwxrwx  0 0      0        1048 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode\$Filter\$3.class
+-rwxrwxrwx  0 0      0         645 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode\$Filter\$4.class
+-rwxrwxrwx  0 0      0         579 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode\$Filter\$5.class
+-rwxrwxrwx  0 0      0        1271 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode\$Filter.class
+-rwxrwxrwx  0 0      0        2392 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode\$List.class
+-rwxrwxrwx  0 0      0        2812 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode\$Namespace.class
+-rwxrwxrwx  0 0      0        2391 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode\$Namespaces.class
+-rwxrwxrwx  0 0      0        4541 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode\$QName.class
+-rwxrwxrwx  0 0      0       17493 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlNode.class
+-rwxrwxrwx  0 0      0       11408 Aug 19  2007 org/mozilla/javascript/xmlimpl/XmlProcessor.class
+END
+
+chomp($input);
+
+$expected = <<END;
+-rwxrwxrwx  0 0      0        1048 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode\$Filter\$3.class\e[0m
+-rwxrwxrwx  0 0      0         645 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode\$Filter\$4.class\e[0m
+-rwxrwxrwx  0 0      0         579 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode\$Filter\$5.class\e[0m
+-rwxrwxrwx  0 0      0        1271 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode\$Filter.class\e[0m
+-rwxrwxrwx  0 0      0        2392 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode\$List.class\e[0m
+-rwxrwxrwx  0 0      0        2812 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode\$Namespace.class\e[0m
+-rwxrwxrwx  0 0      0        2391 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode\$Namespaces.class\e[0m
+-rwxrwxrwx  0 0      0        4541 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode\$QName.class\e[0m
+-rwxrwxrwx  0 0      0       17493 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlNode.class\e[0m
+-rwxrwxrwx  0 0      0       11408 Aug 19  2007 \e[01;32morg/mozilla/javascript/xmlimpl/XmlProcessor.class\e[0m
+END
+
+is(`echo '$input' | TAR_COLORS="ln=40;34" bin/tarcolor`, $expected, "Coloring of GNU tar output for a jar file");
