@@ -10,6 +10,9 @@ plan tests => 12;
 my $input;
 my $expected;
 
+$ENV{'LS_COLORS'} = '';
+$ENV{'TAR_COLORS'} = '';
+
 
 $input = <<END;
 drwxr-xr-x  12 marca  admin       0 Jan 15 08:33 test_tar_archive/
