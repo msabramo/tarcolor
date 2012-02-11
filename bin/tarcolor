@@ -46,37 +46,40 @@ sub get_file_type {
     }
 }
 
+sub get_filename {
+	my $bsdtar_date = m{
+		(?<month> Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)
+		\s+
+		(?<day> \d{1,2})
+		\s+
+		((?<year> \d{4}) | (?<time> \d{2}:\d{2}))
+        \s+
+        (?<filename> .+?)
+        (?=\s->|$)
+	}gx;
+
+	if ($bsdtar_date) {
+		return $+{filename}, pos();
+	}
+
+	my $gnutar_date = m{
+		(?<year> \d{4})-(?<month> \d{2})-(?<day> \d{2})\s(?<hour> \d{2}):(?<minute> \d{2})(:(?<seconds> \d{2}))?
+        (\s+)
+        (?<filename> .+?)
+        (?=\s->|$)
+	}gx;
+	
+	if ($gnutar_date) {
+		return $+{filename}, pos();
+	}
+}
+
 sub color_filename {
     my ($color) = @_;
 
-    s
-    {
-        (\d+)                             # $1  = size
-        ([-\s]+)                          # $2  = space
-        (\w+)                             # $3  = month
-        ([-\s]+)                          # $4  = space
-        (\d{1,2})                         # $5  = day (dd) in date
-        (\s+)                             # $6  = space
-        (                                 # $7  =
-            (?:\d{2}:\d{2}(?::\d{2})?) |  #     time
-            (?:\d{4})                     #     | year
-        )                                 # $7  = time | year
-        (\s+)                             # $8  = space
-        (.+?)                             # $9  = filename
-        (\s->|$)                          # $10 = " ->" or end of string
-    }
-    {$1$2$3$4$5$6$7$8${color}$9${RESET}$10}x;
+	my ($filename, $pos) = get_filename();
 
-    # print "\$1 = \"" . $1 . "\"\n";
-    # print "\$2 = \"$2\"\n";
-    # print "\$3 = \"$3\"\n";
-    # print "\$4 = \"$4\"\n";
-    # print "\$5 = \"$5\"\n";
-    # print "\$6 = \"$6\"\n";
-    # print "\$7 = \"$7\"\n";
-    # print "\$8 = \"$8\"\n";
-    # print "\$9 = \"$9\"\n";
-    # print "\$10 = \"$10\"\n";
+	substr($_, $pos - length($filename), length($filename)) = $color . $filename . $RESET;
 }
 
 sub default_ls_colors {
