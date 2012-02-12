@@ -5,7 +5,7 @@ use strict;
 
 use Test::More;
 
-plan tests => 12;
+plan tests => 13;
 
 my $input;
 my $expected;
@@ -362,3 +362,36 @@ $expected = <<END;
 END
 
 is(`echo '$input' | TAR_COLORS="ln=40;34" bin/tarcolor`, $expected, "Coloring of GNU tar output for a jar file");
+
+
+$input = <<END;
+drwxr-xr-x  0 friebel sysprog     0 Nov 16 23:42 lesspipe-1.72/
+drwxr-xr-x  0 friebel sysprog      0 Nov 16 23:27 lesspipe-1.72/contrib/
+drwxr-xr-x  0 friebel sysprog      0 Oct 17 07:31 lesspipe-1.72/testok/
+-rw-r--r--  0 friebel sysprog     29 Jul 10  2009 lesspipe-1.72/testok/a*b.gz
+-rw-r--r--  0 friebel sysprog   2092 Jul 10  2009 lesspipe-1.72/testok/test.mp3
+-rw-r--r--  0 friebel sysprog     29 Jul 10  2009 lesspipe-1.72/testok/a?b.gz
+-rw-r--r--  0 friebel sysprog     29 Jul 10  2009 lesspipe-1.72/testok/a]b.gz
+-rw-r--r--  0 friebel sysprog   1920 Jul 10  2009 lesspipe-1.72/testok/id3v2.mp3
+-rw-r--r--  0 friebel sysprog     35 Jul 10  2009 lesspipe-1.72/testok/a`data.gz
+-rw-r--r--  0 friebel sysprog     29 Jul 10  2009 lesspipe-1.72/testok/a[b.gz
+-rw-r--r--  0 friebel sysprog     45 Jul 10  2009 lesspipe-1.72/testok/perlstorable.gz
+END
+
+chomp($input);
+
+$expected = <<END;
+drwxr-xr-x  0 friebel sysprog     0 Nov 16 23:42 \e[01;34mlesspipe-1.72/\e[0m
+drwxr-xr-x  0 friebel sysprog      0 Nov 16 23:27 \e[01;34mlesspipe-1.72/contrib/\e[0m
+drwxr-xr-x  0 friebel sysprog      0 Oct 17 07:31 \e[01;34mlesspipe-1.72/testok/\e[0m
+-rw-r--r--  0 friebel sysprog     29 Jul 10  2009 \e[01;36mlesspipe-1.72/testok/a*b.gz\e[0m
+-rw-r--r--  0 friebel sysprog   2092 Jul 10  2009 \e[01;35mlesspipe-1.72/testok/test.mp3\e[0m
+-rw-r--r--  0 friebel sysprog     29 Jul 10  2009 \e[01;36mlesspipe-1.72/testok/a?b.gz\e[0m
+-rw-r--r--  0 friebel sysprog     29 Jul 10  2009 \e[01;36mlesspipe-1.72/testok/a]b.gz\e[0m
+-rw-r--r--  0 friebel sysprog   1920 Jul 10  2009 \e[01;35mlesspipe-1.72/testok/id3v2.mp3\e[0m
+-rw-r--r--  0 friebel sysprog     35 Jul 10  2009 \e[01;36mlesspipe-1.72/testok/a`data.gz\e[0m
+-rw-r--r--  0 friebel sysprog     29 Jul 10  2009 \e[01;36mlesspipe-1.72/testok/a[b.gz\e[0m
+-rw-r--r--  0 friebel sysprog     45 Jul 10  2009 \e[01;36mlesspipe-1.72/testok/perlstorable.gz\e[0m
+END
+
+is(`echo '$input' | LS_COLORS='*.mp3=01;35:*.gz=01;36' bin/tarcolor`, $expected, "Color .mp3 files purple and .gz files cyan");
