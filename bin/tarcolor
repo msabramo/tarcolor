@@ -142,6 +142,10 @@ TAR_COLORS='di=01;34:ln=01;36:ex=01;32:so=01;40:pi=01;40:bd=40;33:cd=40;33:su=0;
 The format for TAR_COLORS is similar to the format used by LS_COLORS Check out
 the online LSCOLORS generator at http://geoff.greer.fm/lscolors/
 
+=head1 SEE ALSO
+
+tarcolorauto(1)
+
 =head1 SOURCE CODE
 
 https://github.com/msabramo/tarcolor
