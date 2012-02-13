@@ -35,12 +35,29 @@ If you are installing into a system-wide directory, you may need to run:
 
 ## Usage
 
-Colors can be customized using an environment variable:
+You can use `tarcolor` manually like this:
+
+	$ tar tvf some_tarball.tgz | tarcolor
+
+There is also a bundled shell script (for bash and zsh) that makes `tar`
+automatically pipe its output through `tarcolor`:
+
+    $ source /usr/local/etc/tarcolor/tarcolorauto.sh
+    $ tarcolorauto on
+	$ tar tvf some_tarball.tgz
+    ... colored output ...
+    $ tarcolorauto off
+	$ tar tvf some_tarball.tgz
+    ... normal uncolored output ...
+
+
+## Customization
+
+Colors can be customized using the `LS_COLORS` or `TAR_COLORS` environment variables:
 
     $ export TAR_COLORS='di=01;34:ln=01;36:ex=01;32:so=01;40:pi=01;40:bd=40;33:cd=40;33:su=0;41:sg=0;46'
 
-The format for `TAR_COLORS` is similar to the format used by `LS_COLORS` (used by [GNU ls](http://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html#ls-invocation)).
-Check out the online LSCOLORS generator at http://geoff.greer.fm/lscolors/
+The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLORS` (used by [GNU ls](http://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html#ls-invocation)). So if you use GNU ls and have your `LS_COLORS` set, then tarcolor will use similar colors as ls.
 
 
 ## Example
