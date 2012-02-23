@@ -1,6 +1,6 @@
 # tarcolor
 
-A Perl program that can color the output of `tar tvf` (tested with [bsdtar](http://code.google.com/p/libarchive/) 2.6.2 and [GNU tar](http://www.gnu.org/software/tar/) 1.26 on OS X 10.6.8) similarly to the way `ls` would
+A Perl program that can color the output of `tar tvf` similarly to the way GNU `ls` would.
 
 By Marc Abramowitz (http://marc-abramowitz.com)
 
@@ -63,6 +63,17 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
 ## Example
 
 ![tarcolor screenshot](https://github.com/msabramo/tarcolor/raw/master/tarcolor_screenshot.png "tarcolor screenshot")
+
+## Tested with
+
+* Mac OS X 10.6.8 (Snow Leopard)
+  * [bsdtar](http://code.google.com/p/libarchive/) 2.6.2
+  * [GNU tar](http://www.gnu.org/software/tar/) 1.26
+* [OpenIndiana](http://openindiana.org/) b151A
+  * [GNU tar](http://www.gnu.org/software/tar/) 1.23 (`/usr/gnu/bin/tar` or `/usr/bin/gtar`)
+  * The Sun-derived tar (`/usr/bin/tar`) does NOT work with tarcolor currently because it has a unique output format.
+* CentOS 5.5/Linux 2.6.16.33
+  * [GNU tar](http://www.gnu.org/software/tar/) 1.15.1
 
 
 ## Future enhancements (patches are welcome!)
