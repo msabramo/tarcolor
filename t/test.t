@@ -5,7 +5,7 @@ use strict;
 
 use Test::More;
 
-plan tests => 13;
+plan tests => 14;
 
 my $input;
 my $expected;
@@ -395,3 +395,77 @@ drwxr-xr-x  0 friebel sysprog      0 Oct 17 07:31 \e[01;34mlesspipe-1.72/testok/
 END
 
 is(`echo '$input' | LS_COLORS='*.mp3=01;35:*.gz=01;36' bin/tarcolor`, $expected, "Color .mp3 files purple and .gz files cyan");
+
+
+$input = <<END;
+drwxr-xr-x 101/10       0 Nov 16 23:42 2011 lesspipe-1.72/
+-rw-r--r-- 101/10    5406 Nov 16 23:35 2011 lesspipe-1.72/lesspipe.1
+-rwxr-xr-x 101/10   29149 Nov 16 22:17 2011 lesspipe-1.72/lesspipe.sh.in
+-rw-r--r-- 101/10   11913 Jul 10 04:34 2009 lesspipe-1.72/german.txt
+-rwxr-xr-x 101/10  199875 Jul 10 04:34 2009 lesspipe-1.72/code2color
+-rw-r--r-- 101/10     524 Nov 16 23:42 2011 lesspipe-1.72/Makefile
+-rwxr-xr-x 101/10    2187 Jul 15 04:28 2009 lesspipe-1.72/test.pl
+-rw-r--r-- 101/10   17985 Jul 10 04:34 2009 lesspipe-1.72/COPYING
+drwxr-xr-x 101/10       0 Oct 17 07:31 2011 lesspipe-1.72/testok/
+-rw-r--r-- 101/10    1584 Jul 10 04:34 2009 lesspipe-1.72/testok/test.deb
+-rw-r--r-- 101/10    3482 Jul 10 04:34 2009 lesspipe-1.72/testok/a#rtf
+-rw-r--r-- 101/10     188 Jul 10 04:34 2009 lesspipe-1.72/testok/a|b.7za
+-rw-r--r-- 101/10     760 Jul 10 04:34 2009 lesspipe-1.72/testok/README
+-rw-r--r-- 101/10       5 Jul 10 04:34 2009 lesspipe-1.72/testok/a b
+-rw-r--r-- 101/10    1374 Jul 10 04:34 2009 lesspipe-1.72/testok/test.rpm
+-rw-r--r-- 101/10      45 Jul 10 04:34 2009 lesspipe-1.72/testok/perlstorable.gz
+-rw-r--r-- 101/10    1920 Jul 10 04:34 2009 lesspipe-1.72/testok/id3v2.mp3
+-rw-r--r-- 101/10   98304 Jul 10 04:34 2009 lesspipe-1.72/testok/iso.image
+-rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\$b.lz
+-rw-r--r-- 101/10    2092 Jul 10 04:34 2009 lesspipe-1.72/testok/test.mp3
+-rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\\\\b.lz
+-rw-r--r-- 101/10      35 Jul 10 04:34 2009 lesspipe-1.72/testok/a`data.gz
+-rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a[b.gz
+-rw-r--r-- 101/10     219 Jul 10 04:34 2009 lesspipe-1.72/testok/azip.tlz
+-rw-r--r-- 101/10       5 Jul 10 04:34 2009 lesspipe-1.72/testok/floppy.txt
+-rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a?b.gz
+-rwxr-xr-x 101/10     146 Jul 10 04:34 2009 lesspipe-1.72/testok/cabinet.cab
+-rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a*b.gz
+-rw-r--r-- 101/10      12 Jul 10 04:34 2009 lesspipe-1.72/testok/test.utf16
+lrwxrwxrwx 101/10       3 Feb 23 12:32 2012 lesspipe-1.72/testok/symlink symbolic link to a b
+-rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a]b.gz
+END
+
+chomp($input);
+
+$expected = <<END;
+drwxr-xr-x 101/10       0 Nov 16 23:42 2011 \e[01;34mlesspipe-1.72/\e[0m
+-rw-r--r-- 101/10    5406 Nov 16 23:35 2011 lesspipe-1.72/lesspipe.1
+-rwxr-xr-x 101/10   29149 Nov 16 22:17 2011 \e[01;32mlesspipe-1.72/lesspipe.sh.in\e[0m
+-rw-r--r-- 101/10   11913 Jul 10 04:34 2009 lesspipe-1.72/german.txt
+-rwxr-xr-x 101/10  199875 Jul 10 04:34 2009 \e[01;32mlesspipe-1.72/code2color\e[0m
+-rw-r--r-- 101/10     524 Nov 16 23:42 2011 lesspipe-1.72/Makefile
+-rwxr-xr-x 101/10    2187 Jul 15 04:28 2009 \e[01;32mlesspipe-1.72/test.pl\e[0m
+-rw-r--r-- 101/10   17985 Jul 10 04:34 2009 lesspipe-1.72/COPYING
+drwxr-xr-x 101/10       0 Oct 17 07:31 2011 \e[01;34mlesspipe-1.72/testok/\e[0m
+-rw-r--r-- 101/10    1584 Jul 10 04:34 2009 lesspipe-1.72/testok/test.deb
+-rw-r--r-- 101/10    3482 Jul 10 04:34 2009 lesspipe-1.72/testok/a#rtf
+-rw-r--r-- 101/10     188 Jul 10 04:34 2009 lesspipe-1.72/testok/a|b.7za
+-rw-r--r-- 101/10     760 Jul 10 04:34 2009 lesspipe-1.72/testok/README
+-rw-r--r-- 101/10       5 Jul 10 04:34 2009 lesspipe-1.72/testok/a b
+-rw-r--r-- 101/10    1374 Jul 10 04:34 2009 \e[01;35mlesspipe-1.72/testok/test.rpm\e[0m
+-rw-r--r-- 101/10      45 Jul 10 04:34 2009 lesspipe-1.72/testok/perlstorable.gz
+-rw-r--r-- 101/10    1920 Jul 10 04:34 2009 lesspipe-1.72/testok/id3v2.mp3
+-rw-r--r-- 101/10   98304 Jul 10 04:34 2009 lesspipe-1.72/testok/iso.image
+-rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\$b.lz
+-rw-r--r-- 101/10    2092 Jul 10 04:34 2009 lesspipe-1.72/testok/test.mp3
+-rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\\b.lz
+-rw-r--r-- 101/10      35 Jul 10 04:34 2009 lesspipe-1.72/testok/a`data.gz
+-rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a[b.gz
+-rw-r--r-- 101/10     219 Jul 10 04:34 2009 lesspipe-1.72/testok/azip.tlz
+-rw-r--r-- 101/10       5 Jul 10 04:34 2009 lesspipe-1.72/testok/floppy.txt
+-rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a?b.gz
+-rwxr-xr-x 101/10     146 Jul 10 04:34 2009 \e[01;32mlesspipe-1.72/testok/cabinet.cab\e[0m
+-rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a*b.gz
+-rw-r--r-- 101/10      12 Jul 10 04:34 2009 lesspipe-1.72/testok/test.utf16
+lrwxrwxrwx 101/10       3 Feb 23 12:32 2012 \e[01;36mlesspipe-1.72/testok/symlink symbolic link to a b\e[0m
+-rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a]b.gz
+END
+
+is(`echo '$input' | TAR_COLORS="ln=01;36:*.rpm=01;35" bin/tarcolor`, $expected, "Coloring of sun tar output");
+

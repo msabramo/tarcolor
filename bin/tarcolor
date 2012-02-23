@@ -49,6 +49,23 @@ sub get_file_type {
 }
 
 sub get_filename {
+	my $suntar_date = m{
+		(?<month> Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)
+		\s+
+		(?<day> \d{1,2})
+		\s+
+		(?<time> \d{2}:\d{2})
+		\s+
+		(?<year> \d{4})
+        \s+
+        (?<filename> .+?)
+        (?=\s->|$)
+	}gx;
+
+	if ($suntar_date) {
+		return $+{filename}, pos();
+	}
+
 	my $bsdtar_date = m{
 		(?<month> Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)
 		\s+
