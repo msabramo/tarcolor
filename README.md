@@ -70,8 +70,8 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
   * [bsdtar](http://code.google.com/p/libarchive/) 2.6.2
   * [GNU tar](http://www.gnu.org/software/tar/) 1.26
 * [OpenIndiana](http://openindiana.org/) b151A
-  * [GNU tar](http://www.gnu.org/software/tar/) 1.23 (`/usr/gnu/bin/tar`)
-  * The system tar (`/usr/bin/tar`) does NOT work with tarcolor.
+  * [GNU tar](http://www.gnu.org/software/tar/) 1.23 (`/usr/gnu/bin/tar` or `/usr/bin/gtar`)
+  * The Sun-derived tar (`/usr/bin/tar`) does NOT work with tarcolor currently because it has a unique output format.
 * CentOS 5.5/Linux 2.6.16.33
   * [GNU tar](http://www.gnu.org/software/tar/) 1.15.1
 
