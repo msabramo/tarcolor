@@ -75,6 +75,7 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
 * [OpenIndiana](http://openindiana.org/) b151A
   * [GNU tar](http://www.gnu.org/software/tar/) 1.23 (`/usr/gnu/bin/tar` or `/usr/bin/gtar`)
   * Solaris tar (`/usr/bin/tar`) (Fixed in [issue msabramo/tarcolor#11](https://github.com/msabramo/tarcolor/issues/11)).
+  * [pax](http://en.wikipedia.org/wiki/Pax_\(Unix\)) -- `/usr/bin/pax -v -f`
 
 * CentOS 5.5/Linux 2.6.16.33
   * [GNU tar](http://www.gnu.org/software/tar/) 1.15.1
