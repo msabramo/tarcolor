@@ -81,7 +81,7 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
 * CentOS 5.5/Linux 2.6.16.33
   * [GNU tar](http://www.gnu.org/software/tar/) 1.15.1
   * [GNU cpio](http://www.gnu.org/software/cpio/) 2.6 -- `cpio -itv < file.tar`
-  * [pax](http://en.wikipedia.org/wiki/Pax_\(Unix\)) 3.4 -- `/bin/pax -v -f`
+  * [pax](http://en.wikipedia.org/wiki/Pax_\(Unix\)) 3.4 -- `/bin/pax -v -f` (Fixed in [issue 13](https://github.com/msabramo/tarcolor/issues/13)).
   * [RPM](http://en.wikipedia.org/wiki/RPM_Package_Manager) 4.4.2.3 -- `rpm -qlpv file.rpm`
 
 * Debian 4.4.5-8/Linux version 3.1.9-vs2.3.2.5 ([DreamHost](http://marc-abramowitz.com/go_dreamhost.php) VPS)
