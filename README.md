@@ -74,6 +74,8 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
   * The Sun-derived tar (`/usr/bin/tar`) (Fixed in issue msabramo/tarcolor#11).
 * CentOS 5.5/Linux 2.6.16.33
   * [GNU tar](http://www.gnu.org/software/tar/) 1.15.1
+* Debian Debian 4.4.5-8/Linux version 3.1.9-vs2.3.2.5 ([DreamHost](http://marc-abramowitz.com/go_dreamhost.php) VPS)
+  * [GNU tar](http://www.gnu.org/software/tar/) 1.16
 
 
 ## Future enhancements (patches are welcome!)
