@@ -69,7 +69,7 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
 * Mac OS X 10.6.8 (Snow Leopard)
   * bsdtar 2.6.2 -- [libarchive](http://code.google.com/p/libarchive/) 2.6.2
   * [GNU tar](http://www.gnu.org/software/tar/) 1.26
-  * `/bin/pax -v -f`
+  * [pax](http://en.wikipedia.org/wiki/Pax_(Unix)) -- `/bin/pax -v -f`
   * bsdcpio 1.1.0 -- [libarchive](http://code.google.com/p/libarchive/) 2.6.2 -- `cpio -itv < file.tar`
 
 * [OpenIndiana](http://openindiana.org/) b151A
@@ -79,8 +79,8 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
 * CentOS 5.5/Linux 2.6.16.33
   * [GNU tar](http://www.gnu.org/software/tar/) 1.15.1
   * [GNU cpio](http://www.gnu.org/software/cpio/) 2.6 -- `cpio -itv < file.tar`
-  * pax 3.4 -- `/bin/pax -v -f`
-  * RPM 4.4.2.3 -- `rpm -qlpv file.rpm`
+  * [pax](http://en.wikipedia.org/wiki/Pax_(Unix)) 3.4 -- `/bin/pax -v -f`
+  * [RPM](http://en.wikipedia.org/wiki/RPM_Package_Manager) 4.4.2.3 -- `rpm -qlpv file.rpm`
 
 * Debian 4.4.5-8/Linux version 3.1.9-vs2.3.2.5 ([DreamHost](http://marc-abramowitz.com/go_dreamhost.php) VPS)
   * [GNU tar](http://www.gnu.org/software/tar/) 1.16
