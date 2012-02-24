@@ -89,6 +89,12 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
   * [GNU cpio](http://www.gnu.org/software/cpio/) 2.6 -- `cpio -itv < file.tar`
   * [Debian dpkg](http://en.wikipedia.org/wiki/Dpkg) 1.13.26 -- `dpkg --contents file.deb`
 
+* FreeBSD 9.0
+  * bsdtar 2.8.4 -- [libarchive](http://code.google.com/p/libarchive/) 2.8.4
+  * [GNU tar](http://www.gnu.org/software/tar/) 1.26
+  * [pax](http://en.wikipedia.org/wiki/Pax_\(Unix\)) -- `/bin/pax -v -f`
+  * bsdcpio 2.8.4 -- [libarchive](http://code.google.com/p/libarchive/) 2.8.4 -- `cpio -itv < file.tar`
+
 
 ## Future enhancements (patches are welcome!)
 
