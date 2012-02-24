@@ -101,7 +101,10 @@ sub color_filename {
 
 	my ($filename, $pos) = get_filename();
 
-	substr($_, $pos - length($filename), length($filename)) = $color . $filename . $RESET;
+    if ($filename && $pos)
+    {
+        substr($_, $pos - length($filename), length($filename)) = $color . $filename . $RESET;
+    }
 }
 
 sub default_ls_colors {
