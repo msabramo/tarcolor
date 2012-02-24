@@ -418,7 +418,7 @@ drwxr-xr-x 101/10       0 Oct 17 07:31 2011 lesspipe-1.72/testok/
 -rw-r--r-- 101/10   98304 Jul 10 04:34 2009 lesspipe-1.72/testok/iso.image
 -rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\$b.lz
 -rw-r--r-- 101/10    2092 Jul 10 04:34 2009 lesspipe-1.72/testok/test.mp3
--rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\\\\b.lz
+-rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\x5c\x5cb.lz
 -rw-r--r-- 101/10      35 Jul 10 04:34 2009 lesspipe-1.72/testok/a`data.gz
 -rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a[b.gz
 -rw-r--r-- 101/10     219 Jul 10 04:34 2009 lesspipe-1.72/testok/azip.tlz
@@ -454,7 +454,7 @@ drwxr-xr-x 101/10       0 Oct 17 07:31 2011 \e[01;34mlesspipe-1.72/testok/\e[0m
 -rw-r--r-- 101/10   98304 Jul 10 04:34 2009 lesspipe-1.72/testok/iso.image
 -rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\$b.lz
 -rw-r--r-- 101/10    2092 Jul 10 04:34 2009 lesspipe-1.72/testok/test.mp3
--rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\\b.lz
+-rw-r--r-- 101/10      33 Jul 10 04:34 2009 lesspipe-1.72/testok/a\x5c\x5cb.lz
 -rw-r--r-- 101/10      35 Jul 10 04:34 2009 lesspipe-1.72/testok/a`data.gz
 -rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a[b.gz
 -rw-r--r-- 101/10     219 Jul 10 04:34 2009 lesspipe-1.72/testok/azip.tlz
@@ -467,5 +467,5 @@ lrwxrwxrwx 101/10       3 Feb 23 12:32 2012 \e[01;36mlesspipe-1.72/testok/symlin
 -rw-r--r-- 101/10      29 Jul 10 04:34 2009 lesspipe-1.72/testok/a]b.gz
 END
 
-is(`echo '$input' | TAR_COLORS="ln=01;36:*.rpm=01;35" bin/tarcolor`, $expected, "Coloring of sun tar output");
+is(`/bin/echo '$input' | TAR_COLORS="ln=01;36:*.rpm=01;35" bin/tarcolor`, $expected, "Coloring of sun tar output");
 
