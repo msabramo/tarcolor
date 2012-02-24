@@ -57,7 +57,7 @@ sub get_filename {
         \d{2}:\d{2}                                           # Time
         \s+
         \d{4}                                                 # Year
-        \s+
+        [\s,]+
         (.+?)                                                 # Capture group 1: filename
         (?=\s->|$)
     }gx;
