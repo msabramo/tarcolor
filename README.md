@@ -69,6 +69,7 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
 * Mac OS X 10.6.8 (Snow Leopard)
   * [bsdtar](http://code.google.com/p/libarchive/) 2.6.2
   * [GNU tar](http://www.gnu.org/software/tar/) 1.26
+  * `/bin/pax`
 * [OpenIndiana](http://openindiana.org/) b151A
   * [GNU tar](http://www.gnu.org/software/tar/) 1.23 (`/usr/gnu/bin/tar` or `/usr/bin/gtar`)
   * The Sun-derived tar (`/usr/bin/tar`) (Fixed in issue msabramo/tarcolor#11).
