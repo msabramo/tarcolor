@@ -84,7 +84,7 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
 * Debian 4.4.5-8/Linux version 3.1.9-vs2.3.2.5 ([DreamHost](http://marc-abramowitz.com/go_dreamhost.php) VPS)
   * [GNU tar](http://www.gnu.org/software/tar/) 1.16
   * [GNU cpio](http://www.gnu.org/software/cpio/) 2.6 -- `cpio -itv < file.tar`
-  * dpkg 1.13.26 -- `dpkg --contents file.deb`
+  * [Debian dpkg](http://en.wikipedia.org/wiki/Dpkg) 1.13.26 -- `dpkg --contents file.deb`
 
 
 ## Future enhancements (patches are welcome!)
