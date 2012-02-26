@@ -99,6 +99,10 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
   * [pax](http://en.wikipedia.org/wiki/Pax_\(Unix\)) -- `/bin/pax -v -f`
   * bsdcpio 2.8.4 -- [libarchive](http://code.google.com/p/libarchive/) 2.8.4 -- `cpio -itv < file.tar`
 
+* Windows 7/Cygwin 1.7.11-1
+  * [GNU tar](http://www.gnu.org/software/tar/) 1.25
+  * bsdtar 2.8.3 -- [libarchive](http://code.google.com/p/libarchive/) 2.8.3
+
 
 ## Future enhancements (patches are welcome!)
 
