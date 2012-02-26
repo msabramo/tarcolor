@@ -102,6 +102,9 @@ The format for `LS_COLORS` and `TAR_COLORS` is the same format used by `LS_COLOR
 * Windows 7/Cygwin 1.7.11-1
   * [GNU tar](http://www.gnu.org/software/tar/) 1.25
   * bsdtar 2.8.3 -- [libarchive](http://code.google.com/p/libarchive/) 2.8.3
+  * [GNU cpio](http://www.gnu.org/software/cpio/) 2.11 -- `cpio -itv < file.tar`
+  * bsdcpio 2.8.3 -- [libarchive](http://code.google.com/p/libarchive/) 2.8.3 -- `cpio -itv < file.tar`
+  * atool 0.38.0 -- `atool -l file.tar`
 
 
 ## Future enhancements (patches are welcome!)
