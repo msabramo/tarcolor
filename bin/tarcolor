@@ -23,29 +23,26 @@ my $RESET = "\033[0m";
 
 
 sub get_file_type {
-    if (substr($_, 0, 1) eq 'l') {
-        return 'ln';
-    } elsif (substr($_, 0, 1) eq 'd') {
-        return 'di';
-    } elsif (substr($_, 0, 1) eq 's') {
-        return 'so';
-    } elsif (substr($_, 3, 1) eq 'S') {
-        return 'su';
-    } elsif (substr($_, 6, 1) eq 'S') {
-        return 'sg';
-    } elsif (substr($_, 0, 1) eq 'p') {
-        return 'pi';
-    } elsif (substr($_, 0, 1) eq 'c') {
-        return 'cd';
-    } elsif (substr($_, 0, 1) eq 'b') {
-        return 'bd';
-    } elsif (substr($_, 0, 1) eq 'D') {
-        return 'do';
-    } elsif (substr($_, 3, 1) eq 'x') {
-        return 'ex';
-    } elsif (/\.\w{1,3}$/) {
-        return '*' . $&;
-    }
+    my $sub;
+
+    return 'sg' if (substr($_, 6, 1) eq 'S');
+
+    $sub = substr($_, 3, 1);
+
+    return 'su' if ($sub eq 'S');
+    return 'ex' if ($sub eq 'x');
+
+    $sub = substr($_, 0, 1);
+
+    return 'ln' if ($sub eq 'l');
+    return 'di' if ($sub eq 'd');
+    return 'so' if ($sub eq 's');
+    return 'pi' if ($sub eq 'p');
+    return 'cd' if ($sub eq 'c');
+    return 'bd' if ($sub eq 'b');
+    return 'do' if ($sub eq 'D');
+
+    return '*'  if (/\.\w{1,3}$/);
 }
 
 sub get_filename {
