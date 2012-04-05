@@ -19,8 +19,6 @@
 use warnings;
 use strict;
 
-our $VERSION = '0.006';
-
 my $RESET = "\033[0m";
 
 
