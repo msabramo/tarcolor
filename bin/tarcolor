@@ -110,6 +110,11 @@ sub default_ls_colors {
     return '';
 }
 
+if ( -t STDIN ) {
+    print "Example: tar tvzf some_tarball.tar.gz | tarcolor\n";
+    exit(0);
+}
+
 
 my %FILE_TYPE_TO_COLOR = (
     "di" => "\033[01;34m",
