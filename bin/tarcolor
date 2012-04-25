@@ -23,6 +23,8 @@ my $RESET = "\033[0m";
 
 
 sub get_file_type {
+    return if (length($_) < 10);
+
     if (substr($_, 0, 1) eq 'l') {
         return 'ln';
     } elsif (substr($_, 0, 1) eq 'd') {
