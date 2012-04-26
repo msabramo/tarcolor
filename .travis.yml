@@ -1,0 +1,9 @@
+language: perl
+perl:
+  - "5.14"
+  - "5.12"
+  - "5.10"
+before_install:
+    - "cpanm Dist::Zilla"
+install: "dzil authordeps | xargs cpanm"
+script: "dzil test --release"
