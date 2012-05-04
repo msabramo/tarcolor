@@ -9,6 +9,10 @@ By Marc Abramowitz (http://marc-abramowitz.com)
 
 ## Installation
 
+From [the CPAN distribution](http://search.cpan.org/~msabramo/App-TarColor/):
+
+    $ cpanm App::TarColor
+
 Download a tarball `App-TarColor-<version>.tar.gz` from [the downloads page](https://github.com/msabramo/tarcolor/downloads).
 
 Or build a tarball from the repository using [Dist::Zilla](http://dzil.org/):
