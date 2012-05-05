@@ -5,7 +5,7 @@ use strict;
 
 use Test::More;
 
-plan tests => 16;
+plan tests => 18;
 
 $ENV{'LS_COLORS'} = '';
 $ENV{'TAR_COLORS'} = '';
@@ -74,3 +74,11 @@ is(`cat t/input/pax_1 | TAR_COLORS="ln=01;36:*.rpm=01;35" bin/tarcolor`,
 is(`cat t/input/cpio_1 | TAR_COLORS="ln=01;36:*.rpm=01;35" bin/tarcolor`,
    `cat t/output/cpio_1`,
    "Coloring of sun cpio output");
+
+is(`cat t/input/short_lines.txt | bin/tarcolor`,
+   `cat t/output/short_lines.txt`,
+   "Short lines are passed through with no errors");
+
+is(`cat t/input/blank_lines.txt | bin/tarcolor`,
+   `cat t/output/blank_lines.txt`,
+   "Blank lines are passed through with no errors");
