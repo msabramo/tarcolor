@@ -83,6 +83,21 @@ sub get_filename {
         return $1, pos();
     }
 
+    my $bsdtar_date_dmy = m{
+        \d{1,2}                                                # Day
+        \s+
+        (?: Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)   # Month
+        \s+
+        (?: (?: \d{4}) | (?: \d{2}:\d{2}))                     # Year or time
+        \s+
+        (.+?)                                                  # Capture group 1: filename
+        (?=\s->|$)
+    }gx;
+
+    if ($bsdtar_date_dmy) {
+        return $1, pos();
+    }
+
     my $gnutar_date = m{
         \d{4}-\d{2}-\d{2}   # Date (%Y-%m-%d)
         \s 
