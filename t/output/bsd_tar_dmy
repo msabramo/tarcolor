@@ -1,0 +1,51 @@
+drwxr-xr-x  0 friebel sysprog     0  4 Feb  2013 [01;34mlesspipe-1.82/[0m
+drwxr-xr-x  0 friebel sysprog     0 13 Jan  2013 [01;34mlesspipe-1.82/contrib/[0m
+-rw-r--r--  0 friebel sysprog  2870 13 Jan  2013 lesspipe-1.82/contrib/unused.patch
+-rw-r--r--  0 friebel sysprog   865 13 Jan  2013 lesspipe-1.82/contrib/enscript.patch
+-rw-r--r--  0 friebel sysprog   804 13 Jan  2013 lesspipe-1.82/contrib/less_wrapper
+-rw-r--r--  0 friebel sysprog  5733 13 Jan  2013 lesspipe-1.82/contrib/bsdtar.patch
+drwxr-xr-x  0 friebel sysprog     0 13 Jan  2013 [01;34mlesspipe-1.82/testok/[0m
+drwxr-xr-x  0 friebel sysprog     0 13 Jan  2013 [01;34mlesspipe-1.82/testok/a test/[0m
+-rw-r--r--  0 friebel sysprog     0 13 Jan  2013 lesspipe-1.82/testok/a test/test
+-rw-r--r--  0 friebel sysprog   114 13 Jan  2013 lesspipe-1.82/testok/onefile.7za
+-rw-r--r--  0 friebel sysprog     5 13 Jan  2013 lesspipe-1.82/testok/a b
+-rw-r--r--  0 friebel sysprog    12 13 Jan  2013 lesspipe-1.82/testok/test.utf16
+-rw-r--r--  0 friebel sysprog  1920 13 Jan  2013 lesspipe-1.82/testok/id3v2.mp3
+-rw-r--r--  0 friebel sysprog 20673 13 Jan  2013 lesspipe-1.82/testok/a b.tgz
+lrwxr-xr-x  0 friebel sysprog     0  4 Feb  2013 [01;36mlesspipe-1.82/testok/symlink[0m -> a b
+-rw-r--r--  0 friebel sysprog     5 13 Jan  2013 lesspipe-1.82/testok/floppy.txt
+-rw-r--r--  0 friebel sysprog    35 13 Jan  2013 lesspipe-1.82/testok/a`data.gz
+-rwxr-xr-x  0 friebel sysprog   146 13 Jan  2013 [01;32mlesspipe-1.82/testok/cabinet.cab[0m
+-rw-r--r--  0 friebel sysprog    29 13 Jan  2013 lesspipe-1.82/testok/a[b.gz
+-rw-r--r--  0 friebel sysprog  1034 13 Jan  2013 lesspipe-1.82/testok/README
+-rw-r--r--  0 friebel sysprog    29 13 Jan  2013 lesspipe-1.82/testok/a]b.gz
+-rw-r--r--  0 friebel sysprog  3482 13 Jan  2013 lesspipe-1.82/testok/a#rtf
+-rw-r--r--  0 friebel sysprog    29 13 Jan  2013 lesspipe-1.82/testok/a?b.gz
+-rw-r--r--  0 friebel sysprog    33 13 Jan  2013 lesspipe-1.82/testok/a\\b.lz
+-rw-r--r--  0 friebel sysprog    83 13 Jan  2013 lesspipe-1.82/testok/test.rar
+-rw-r--r--  0 friebel sysprog  1584 13 Jan  2013 lesspipe-1.82/testok/test.deb
+-rw-r--r--  0 friebel sysprog    33 13 Jan  2013 lesspipe-1.82/testok/a$b.lz
+-rw-r--r--  0 friebel sysprog   219 13 Jan  2013 lesspipe-1.82/testok/azip.tlz
+-rw-r--r--  0 friebel sysprog    29 13 Jan  2013 lesspipe-1.82/testok/a*b.gz
+-rw-r--r--  0 friebel sysprog 98304 13 Jan  2013 lesspipe-1.82/testok/iso.image
+-rw-r--r--  0 friebel sysprog  1374 13 Jan  2013 lesspipe-1.82/testok/test.rpm
+-rw-r--r--  0 friebel sysprog    45 13 Jan  2013 lesspipe-1.82/testok/perlstorable.gz
+-rw-r--r--  0 friebel sysprog  2092 13 Jan  2013 lesspipe-1.82/testok/test.mp3
+-rw-r--r--  0 friebel sysprog   188 13 Jan  2013 lesspipe-1.82/testok/a|b.7za
+-rwxr-xr-x  0 friebel sysprog 23095  4 Feb  2013 [01;32mlesspipe-1.82/lesspipe.sh[0m
+-rwxr-xr-x  0 friebel sysprog 14926 14 Jan  2013 [01;32mlesspipe-1.82/configure[0m
+-rw-r--r--  0 friebel sysprog  5802 13 Jan  2013 lesspipe-1.82/lesspipe.1
+-rwxr-xr-x  0 friebel sysprog  4714 13 Jan  2013 [01;32mlesspipe-1.82/tarcolor[0m
+-rw-r--r--  0 friebel sysprog  2380 13 Jan  2013 lesspipe-1.82/TESTCMDS
+-rw-r--r--  0 friebel sysprog 11913 13 Jan  2013 lesspipe-1.82/german.txt
+-rwxr-xr-x  0 friebel sysprog  2636 13 Jan  2013 [01;32mlesspipe-1.82/test.pl[0m
+-rw-r--r--  0 friebel sysprog  2529  4 Feb  2013 lesspipe-1.82/lesspipe.spec
+-rw-r--r--  0 friebel sysprog 20942  4 Feb  2013 lesspipe-1.82/README
+-rwxr-xr-x  0 friebel sysprog 11313 13 Jan  2013 [01;32mlesspipe-1.82/sxw2txt[0m
+-rw-r--r--  0 friebel sysprog   701 13 Jan  2013 lesspipe-1.82/TODO
+-rw-r--r--  0 friebel sysprog  6004 13 Jan  2013 lesspipe-1.82/INSTALL
+-rw-r--r--  0 friebel sysprog 17985 13 Jan  2013 lesspipe-1.82/COPYING
+-rw-r--r--  0 friebel sysprog   647 15 Jan  2013 lesspipe-1.82/Makefile
+-rw-r--r--  0 friebel sysprog 12306  4 Feb  2013 lesspipe-1.82/ChangeLog
+-rwxr-xr-x  0 friebel sysprog 200711 14 Jan  2013 [01;32mlesspipe-1.82/code2color[0m
+-rwxr-xr-x  0 friebel sysprog  31225  4 Feb  2013 [01;32mlesspipe-1.82/lesspipe.sh.in[0m

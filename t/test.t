@@ -5,7 +5,7 @@ use strict;
 
 use Test::More;
 
-plan tests => 19;
+plan tests => 20;
 
 $ENV{'LS_COLORS'} = '';
 $ENV{'TAR_COLORS'} = '';
@@ -22,6 +22,10 @@ is(`cat t/input/gnu_tar_1 | bin/tarcolor`,
 is(`cat t/input/bsd_tar_2 | bin/tarcolor`,
    `cat t/output/bsd_tar_2`,
    "tar tvf test_archive.tar.gz, no TAR_COLORS set");
+
+is(`cat t/input/bsd_tar_dmy | bin/tarcolor`,
+   `cat t/output/bsd_tar_dmy`,
+   "LANG=en_CA.UTF-8 tar tvf lesspipe.tar.gz, no TAR_COLORS set");
 
 is(`cat t/input/gnu_tar_2 | bin/tarcolor`,
    `cat t/output/gnu_tar_2`,
@@ -84,5 +88,5 @@ is(`cat t/input/blank_lines.txt | bin/tarcolor`,
    "Blank lines are passed through with no errors");
 
 is(`bin/tarcolor`,
-   "Example: tar tvzf some_tarball.tar.gz | tarcolor\n",
+   -t STDIN ? "Example: tar tvzf some_tarball.tar.gz | tarcolor\n" : "",
    "Displays usage information");
