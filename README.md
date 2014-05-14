@@ -50,10 +50,10 @@ automatically pipe its output through `tarcolor`:
 
     $ source /usr/local/etc/tarcolor/tarcolorauto.sh
     $ tarcolorauto on
-	$ tar tvf some_tarball.tgz
+    $ tar tvf some_tarball.tgz
     ... colored output ...
     $ tarcolorauto off
-	$ tar tvf some_tarball.tgz
+    $ tar tvf some_tarball.tgz
     ... normal uncolored output ...
 
 
